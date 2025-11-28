@@ -21,4 +21,11 @@ export const setSession = (sessionId: string) => {
   return { 'Set-Cookie': `session_id=${sessionId}` }
 }
 
-export const client = new ChatClient(API_KEY, API_URL || undefined)
+// Initialize ChatClient with proper API configuration
+// API_URL should be the base URL (e.g., https://kalm.woa.com)
+// API_KEY should be the Web API Key from Dify (e.g., ClspFCYk5gzoEShN)
+const apiUrl = API_URL || undefined
+console.log('[ChatClient] Initializing with API_URL:', apiUrl)
+console.log('[ChatClient] API_KEY present:', !!API_KEY)
+
+export const client = new ChatClient(API_KEY, apiUrl)
